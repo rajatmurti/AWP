@@ -1,0 +1,28 @@
+<html>
+<head>
+</head>
+<body>
+<div id="myid"></div>
+<script>
+var xmlDOC=new ActiveXObject("Microsoft.XMLDOM");
+xmlDOC.load("center.xml");
+var str="<select>";
+var cdac=xmlDOC.getElementsByTagName("cdac");
+alert(cdac.length);
+for(var i=0;i<cdac.length;i++){
+var child=cdac.item(i).childNodes;
+for(j=0;j<child.length;j++)
+{
+
+ var center=child.item(j).childNodes;	
+
+for(k=0;k<center.length;k++){
+str+="<option>"+center.item(k).text+"</option>";
+}	
+}
+}
+str+="<select>";
+document.getElementById("myid").innerHTML=str;
+</script>
+</body>
+</html>
